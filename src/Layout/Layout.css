@@ -2,7 +2,7 @@
     display: flex;
   }
   .sidebar {
-    /* min-height: 100vh; */
+    min-height: 100vh;
     background-color: var(--secondary-color);
 
     flex-basis: 20%;
@@ -16,10 +16,15 @@
 
   @media (max-width:500px){
     .sidebar{
-        /* flex-direction: column-reverse; */
+        min-height:fit-content;
         position:fixed;
         bottom:0;
         left:0;
         right:0;
+    }
+    .page{
+        display: flex;
+        justify-content: center;
+        flex-basis: 100%;
     }
   }
