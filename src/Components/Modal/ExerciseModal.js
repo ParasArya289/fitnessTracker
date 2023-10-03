@@ -5,7 +5,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { RxCross2 } from "react-icons/rx";
 import { exerciseCalories } from "../../Constants";
 
-const ExerciseModal = ({ children, rstId }) => {
+const ExerciseModal = ({ children }) => {
   const [formData, setFormData] = useState({
     name: "New Exercise",
     duration: 15,
@@ -96,7 +96,7 @@ const ExerciseModal = ({ children, rstId }) => {
           >
             <Dialog.Close asChild>
               <button className="Button green" onClick={submitHandler}>
-                Save review
+                Save ExerciseModal
               </button>
             </Dialog.Close>
           </div>
