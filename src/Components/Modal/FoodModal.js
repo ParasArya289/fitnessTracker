@@ -41,7 +41,7 @@ const FoodModal = ({ children }) => {
       <Dialog.Portal>
         <Dialog.Overlay className="DialogOverlay" />
         <Dialog.Content className="DialogContent">
-          <Dialog.Title className="DialogTitle">Add Exercise</Dialog.Title>
+          <Dialog.Title className="DialogTitle">Add Food</Dialog.Title>
           <Dialog.Description className="DialogDescription">
             Add Food here. Click save when you're done.
           </Dialog.Description>
