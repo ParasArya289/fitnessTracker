@@ -6,7 +6,7 @@
   color: var(--primary-color);
   overflow: hidden;
   border-radius: 6px;
-  z-index: -2;
+  z-index: 0;
 }
 .exerciseCard > h4 {
   margin: 0;
@@ -28,10 +28,12 @@
   border-radius: 12px;
   z-index: -1;
 }
-.exerciseCard svg {
+.exerciseCard__delete {
   position: absolute;
   bottom: 10px;
   font-size: large;
   cursor: pointer;
-  z-index: 992;
+}
+.exerciseCard__delete:hover {
+  color: var(--accent-color);
 }
