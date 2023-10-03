@@ -3,15 +3,35 @@ import "./Modal.css";
 import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { RxCross2 } from "react-icons/rx";
+import { exerciseCalories } from "../../Constants";
 
 const ExerciseModal = ({ children, rstId }) => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    name: "New Exercise",
+    duration: 15,
+    exerciseType: "yoga",
+  });
 
   const formDataHandler = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
+    }));
+  };
+
+  const submitHandler = () => {
+    console.log({
+      ...formData,
+      caloriesBurnt:
+        formData.duration *
+        exerciseCalories[formData.exerciseType].caloriePerUnit,
+    });
+    console.log(formData);
+    setFormData(() => ({
+      name: "New Exercise",
+      duration: 15,
+      exerciseType: "yoga",
     }));
   };
 
@@ -32,6 +52,7 @@ const ExerciseModal = ({ children, rstId }) => {
             <input
               className="Input"
               name="name"
+              defaultValue={formData.name}
               onChange={(e) => formDataHandler(e)}
             />
           </fieldset>
@@ -44,6 +65,7 @@ const ExerciseModal = ({ children, rstId }) => {
               name="duration"
               type="number"
               min="0"
+              defaultValue={formData.duration}
               onChange={(e) => formDataHandler(e)}
             />
           </fieldset>
@@ -54,11 +76,12 @@ const ExerciseModal = ({ children, rstId }) => {
             <select
               className="Input"
               name="exerciseType"
+              defaultValue={formData.exerciseType}
               onChange={(e) => formDataHandler(e)}
             >
               <option value="yoga">Yoga</option>
               <option value="aerobic">Aerobic</option>
-              <option value="strenghtTraining">Strength Training</option>
+              <option value="strengthTraining">Strength Training</option>
               <option value="walking">walking</option>
               <option value="running">Running</option>
               <option value="cycling">Cycling</option>
@@ -72,7 +95,7 @@ const ExerciseModal = ({ children, rstId }) => {
             }}
           >
             <Dialog.Close asChild>
-              <button className="Button green" onClick={""}>
+              <button className="Button green" onClick={submitHandler}>
                 Save review
               </button>
             </Dialog.Close>
