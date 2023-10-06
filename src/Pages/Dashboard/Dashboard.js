@@ -12,6 +12,7 @@ export const Dashboard = () => {
             174
           </p>
           <h4>Total Calories Burned</h4>
+          <img src="dashboardCardBg.svg" />
         </div>
 
         <div className="dashboard__card">
@@ -20,6 +21,7 @@ export const Dashboard = () => {
             174
           </p>
           <h4>Total Calories Consumed</h4>
+          <img src="dashboardCardBg.svg" />
         </div>
 
         <div className="dashboard__card">
@@ -28,6 +30,7 @@ export const Dashboard = () => {
             174
           </p>
           <h4>Total Calories Goal</h4>
+          <img src="dashboardCardBg.svg"/>
         </div>
 
         <div className="dashboard__card">
@@ -36,6 +39,7 @@ export const Dashboard = () => {
             174
           </p>
           <h4>Remaining Calories to Goal</h4>
+          <img src="dashboardCardBg.svg" />
         </div>
       </div>
     </div>
