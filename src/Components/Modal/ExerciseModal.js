@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { RxCross2 } from "react-icons/rx";
 import { exerciseCalories } from "../../Constants";
+import { useDispatch } from "react-redux";
+import { addEntry } from "../../dataActions";
 
 const ExerciseModal = ({ children }) => {
   const [formData, setFormData] = useState({
@@ -11,6 +13,7 @@ const ExerciseModal = ({ children }) => {
     duration: 15,
     exerciseType: "yoga",
   });
+  const dispatch = useDispatch();
 
   const formDataHandler = (e) => {
     const { name, value } = e.target;
@@ -21,6 +24,17 @@ const ExerciseModal = ({ children }) => {
   };
 
   const submitHandler = () => {
+    dispatch(
+      addEntry({
+        type: "exercises",
+        data: {
+          ...formData,
+          caloriesBurnt:
+            formData.duration *
+            exerciseCalories[formData.exerciseType].caloriePerUnit,
+        },
+      })
+    );
     console.log({
       ...formData,
       caloriesBurnt:
