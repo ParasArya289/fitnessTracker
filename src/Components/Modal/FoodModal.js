@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { RxCross2 } from "react-icons/rx";
 import { exerciseCalories } from "../../Constants";
+import { useDispatch } from "react-redux";
+import { addEntry } from "../../dataActions";
 
 const FoodModal = ({ children }) => {
   const [formData, setFormData] = useState({
@@ -13,6 +15,7 @@ const FoodModal = ({ children }) => {
     carbohydrates: 0,
     fat: 0,
   });
+  const dispatch = useDispatch();
 
   const formDataHandler = (e) => {
     const { name, value } = e.target;
@@ -26,6 +29,7 @@ const FoodModal = ({ children }) => {
     console.log({
       ...formData,
     });
+    dispatch(addEntry({ type: "foods", data: formData }));
     setFormData(() => ({
       foodName: "New food",
       calories: 0,
@@ -51,7 +55,7 @@ const FoodModal = ({ children }) => {
             </label>
             <input
               className="Input"
-              name="foodNName"
+              name="foodName"
               defaultValue={formData.foodName}
               onChange={(e) => formDataHandler(e)}
             />
