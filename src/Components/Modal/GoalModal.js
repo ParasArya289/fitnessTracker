@@ -3,6 +3,8 @@ import "./Modal.css";
 import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { RxCross2 } from "react-icons/rx";
+import { useDispatch } from "react-redux";
+import { addEntry } from "../../dataActions";
 
 const GoalModal = ({ children }) => {
   const [formData, setFormData] = useState({
@@ -12,6 +14,7 @@ const GoalModal = ({ children }) => {
     targetCaloriesValue: null,
     status: "In Progress",
   });
+  const dispatch = useDispatch();
 
   const formDataHandler = (e) => {
     const { name, value } = e.target;
@@ -25,6 +28,7 @@ const GoalModal = ({ children }) => {
     console.log({
       ...formData,
     });
+    dispatch(addEntry({ type: "goals", data: formData }));
     setFormData(() => ({
       goalName: "New Goal",
       goalDescription: "New Goal",
