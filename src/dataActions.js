@@ -37,3 +37,41 @@ export const fetchGoals = () => async (dispatch) => {
     dispatch({ type: "FETCH_GOALS_FAILURE" });
   }
 };
+
+export const addEntry = (entry) => async (dispatch) => {
+  console.log(
+    `https://fitness-tracker-backend.parasarya2.repl.co/fitness/${entry.type}`
+  );
+  try {
+    if (entry.type === "exercises") {
+      dispatch({ type: "ADD_EXERCISE_LOADING" });
+    } else if (entry.type === "foods") {
+      dispatch({ type: "ADD_FOOD_LOADING" });
+    } else if (entry.type === "goals") {
+      dispatch({ type: "ADD_GOAL_LOADING" });
+    }
+    const response = await fetch(
+      `https://fitness-tracker-backend.parasarya2.repl.co/fitness/${entry.type}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(entry.data),
+      }
+    );
+
+    const data = await response.json();
+    if (entry.type === "exercises") {
+      dispatch({ type: "ADD_EXERCISE_SUCCESS", payload: data.exercise });
+    } else if (entry.type === "foods") {
+      dispatch({ type: "ADD_FOOD_SUCCESS", payload: data.food });
+    } else if (entry.type === "goals") {
+      console.log(data.goal);
+        dispatch({ type: "ADD_GOAL_SUCCESS", payload: data.goal });
+    }
+  } catch (error) {
+    console.log("Failed to add:", error);
+    dispatch({ type: "ADD_DATA_FAILURE" });
+  }
+};
