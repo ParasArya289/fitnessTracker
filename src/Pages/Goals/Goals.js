@@ -42,13 +42,15 @@ export const Goals = () => {
   //     status: "Abandoned",
   //   },
   // ];
-  const goals = useSelector(state=>state.goals)
-  const loading = useSelector(state=>state.loading)
+  const goals = useSelector((state) => state.goals);
+  const loading = useSelector((state) => state.loading);
+  const goalLoading = useSelector((state) => state.goalLoading);
   return (
     <div className="goals">
       <h1>Goals</h1>
-      {loading&&<h4>Loading...</h4>}
+      {loading && <h4>Loading...</h4>}
       <div className="goals__container">
+        {goalLoading && <h4>Adding...</h4>}
         {goals.map((goal) => (
           <GoalCard goal={goal} />
         ))}
