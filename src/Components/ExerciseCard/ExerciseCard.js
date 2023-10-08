@@ -21,13 +21,13 @@ export const ExerciseCard = ({
     dispatch(removeEntry({ type: "exercises", _id: _id }));
     setCurrentId(_id);
   };
+  // style={{
+  //   opacity: exerciseLoading.deleting && currentId === _id ? 0.8 : 1,
+  //   transition: "opacity 0.3s ease",
+  // }}
   return (
     <div
-      className="exerciseCard"
-      style={{
-        opacity: exerciseLoading.deleting && currentId === _id ? 0.8 : 1,
-        transition: "opacity 0.3s ease",
-      }}
+      className={`exerciseCard ${exerciseLoading.deleting && currentId === _id && "placeholderCard"}`}
     >
       <h4>{name}</h4>
       <p>{exerciseCalories[exerciseType]?.type}</p>
