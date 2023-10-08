@@ -68,10 +68,44 @@ export const addEntry = (entry) => async (dispatch) => {
       dispatch({ type: "ADD_FOOD_SUCCESS", payload: data.food });
     } else if (entry.type === "goals") {
       console.log(data.goal);
-        dispatch({ type: "ADD_GOAL_SUCCESS", payload: data.goal });
+      dispatch({ type: "ADD_GOAL_SUCCESS", payload: data.goal });
     }
   } catch (error) {
     console.log("Failed to add:", error);
+    dispatch({ type: "ADD_DATA_FAILURE" });
+  }
+};
+
+export const removeEntry = (entry) => async (dispatch) => {
+  console.log(
+    `https://fitness-tracker-backend.parasarya2.repl.co/fitness/${entry.type}/${entry._id}`
+  );
+  try {
+    if (entry.type === "exercises") {
+      dispatch({ type: "DELETE_EXERCISE_LOADING" });
+    } else if (entry.type === "foods") {
+      dispatch({ type: "DELETE_FOOD_LOADING" });
+    } else if (entry.type === "goals") {
+      dispatch({ type: "DELETE_GOAL_LOADING" });
+    }
+    const response = await fetch(
+      `https://fitness-tracker-backend.parasarya2.repl.co/fitness/${entry.type}/${entry._id}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    const data = await response.json();
+    if (entry.type === "exercises") {
+      dispatch({ type: "DELETE_EXERCISE_SUCCESS", payload: data.exercise });
+    } else if (entry.type === "foods") {
+      dispatch({ type: "DELETE_FOOD_SUCCESS", payload: data.food });
+    } else if (entry.type === "goals") {
+      console.log(data.goal);
+      dispatch({ type: "DELETE_GOAL_SUCCESS", payload: data.goal });
+    }
+  } catch (error) {
+    console.log("Failed to delete:", error);
     dispatch({ type: "ADD_DATA_FAILURE" });
   }
 };
