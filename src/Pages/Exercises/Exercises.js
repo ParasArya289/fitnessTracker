@@ -53,6 +53,7 @@ export const Exercises = () => {
       <h1>Exercises</h1>
       {loading && <h4>Loading...</h4>}
       <div className="exericise__container">
+        {exerciseLoading.adding && <PlaceholderCard />}
         {exercises.map((exercise) => (
           <ExerciseCard key={exercies._id} {...exercise} />
         ))}
