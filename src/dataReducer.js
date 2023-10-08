@@ -3,9 +3,18 @@ const initState = {
   foods: [],
   goals: [],
   loading: false,
-  exerciseLoading: false,
-  foodLoading: false,
-  goalLoading: false,
+  exerciseLoading: {
+    adding: false,
+    deleting: false,
+  },
+  foodLoading: {
+    adding: false,
+    deleting: false,
+  },
+  goalLoading: {
+    adding: false,
+    deleting: false,
+  },
   error: null,
 };
 const dataReducer = (state = initState, action) => {
@@ -60,44 +69,124 @@ const dataReducer = (state = initState, action) => {
     case "ADD_EXERCISE_LOADING":
       return {
         ...state,
-        exerciseLoading: true,
+        exerciseLoading: {
+          adding: true,
+          deleting: false,
+        },
       };
     case "ADD_FOOD_LOADING":
       return {
         ...state,
-        foodLoading: true,
+        foodLoading: {
+          adding: true,
+          deleting: false,
+        },
       };
     case "ADD_GOAL_LOADING":
       return {
         ...state,
-        goalLoading: true,
+        goalLoading: {
+          adding: true,
+          deleting: false,
+        },
+      };
+    case "DELETE_EXERCISE_LOADING":
+      return {
+        ...state,
+        exerciseLoading: {
+          adding: false,
+          deleting: true,
+        },
+      };
+    case "DELETE_FOOD_LOADING":
+      return {
+        ...state,
+        foodLoading: {
+          adding: false,
+          deleting: true,
+        },
+      };
+    case "DELETE_GOAL_LOADING":
+      return {
+        ...state,
+        goalLoading: {
+          adding: false,
+          deleting: true,
+        },
       };
     case "ADD_EXERCISE_SUCCESS":
       return {
         ...state,
         exercises: action.payload,
-        exerciseLoading: false,
+        exerciseLoading: {
+            adding: false,
+            deleting: false,
+          },
         error: null,
       };
     case "ADD_FOOD_SUCCESS":
       return {
         ...state,
         foods: action.payload,
-        foodLoading: false,
+        foodLoading: {
+            adding: false,
+            deleting: false,
+          },
         error: null,
       };
     case "ADD_GOAL_SUCCESS":
       return {
         ...state,
         goals: action.payload,
-        goalLoading: false,
+        goalLoading: {
+            adding: false,
+            deleting: false,
+          },
         error: null,
       };
     case "ADD_DATA_FAILURE":
       return {
         ...state,
         error: "Something went wrong try again",
-        exerciseLoading: false,
+        exerciseLoading: {
+            adding: false,
+            deleting: false,
+          },
+      };
+    case "DELETE_EXERCISE_SUCCESS":
+      return {
+        ...state,
+        exercises: action.payload,
+        exercisesLoading: {
+            adding: false,
+            deleting: false,
+          },
+        error: null,
+      };
+    case "DELETE_FOOD_SUCCESS":
+      return {
+        ...state,
+        foods: action.payload,
+        foodLoading: {
+            adding: false,
+            deleting: false,
+          },
+        error: null,
+      };
+    case "DELETE_GOAL_SUCCESS":
+      return {
+        ...state,
+        goals: action.payload,
+        goalLoading: {
+            adding: false,
+            deleting: false,
+          },
+        error: null,
+      };
+    case "DELETE_DATA_FAILURE":
+      return {
+        ...state,
+        error: "Something went wrong try again",
       };
     default:
       return state;
