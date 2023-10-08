@@ -13,7 +13,6 @@ export const ExerciseCard = ({
   duration,
   imageSrc,
 }) => {
-  console.log(imageSrc)
   const [currentId, setCurrentId] = useState();
   const dispatch = useDispatch();
   const exerciseLoading = useSelector((state) => state.exerciseLoading);
@@ -21,10 +20,6 @@ export const ExerciseCard = ({
     dispatch(removeEntry({ type: "exercises", _id: _id }));
     setCurrentId(_id);
   };
-  // style={{
-  //   opacity: exerciseLoading.deleting && currentId === _id ? 0.8 : 1,
-  //   transition: "opacity 0.3s ease",
-  // }}
   return (
     <div
       className={`exerciseCard ${exerciseLoading.deleting && currentId === _id && "placeholderCard"}`}

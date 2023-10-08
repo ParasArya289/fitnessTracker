@@ -1,7 +1,8 @@
 import { RxOpacity } from "react-icons/rx";
-import { useSelector } from "react-redux";  
+import { useSelector } from "react-redux";
 import { FoodCard } from "../../Components/FoodCard/FoodCard";
 import FoodModal from "../../Components/Modal/FoodModal";
+import { PlaceholderCard } from "../../Components/PlaceholderCard/PlaceholderCard";
 import "./Foods.css";
 
 export const Foods = () => {
@@ -50,7 +51,7 @@ export const Foods = () => {
       <h1>Foods</h1>
       {loading && <h4>Loading...</h4>}
       <div className="foods__container">
-        {foodLoading && <h4>Adding...</h4>}
+        {foodLoading.adding && <PlaceholderCard />}
         {foods.map((food) => (
           <FoodCard food={food} />
         ))}
