@@ -3,6 +3,7 @@ import "./Exercises.css";
 import { RxLightningBolt } from "react-icons/rx";
 import ExerciseModal from "../../Components/Modal/ExerciseModal";
 import { useSelector, shallowEqual } from "react-redux";
+import { PlaceholderCard } from "../../Components/PlaceholderCard/PlaceholderCard";
 
 export const Exercises = () => {
   const exercies = [
@@ -52,7 +53,6 @@ export const Exercises = () => {
       <h1>Exercises</h1>
       {loading && <h4>Loading...</h4>}
       <div className="exericise__container">
-        {exerciseLoading.adding && <h4>Adding...</h4>}
         {exercises.map((exercise) => (
           <ExerciseCard key={exercies._id} {...exercise} />
         ))}
