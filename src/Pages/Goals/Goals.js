@@ -2,6 +2,7 @@ import { RxTarget } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import { GoalCard } from "../../Components/GoalCard/GoalCard";
 import GoalModal from "../../Components/Modal/GoalModal";
+import { PlaceholderCard } from "../../Components/PlaceholderCard/PlaceholderCard";
 import "./Goals.css";
 
 export const Goals = () => {
@@ -50,7 +51,7 @@ export const Goals = () => {
       <h1>Goals</h1>
       {loading && <h4>Loading...</h4>}
       <div className="goals__container">
-        {goalLoading && <h4>Adding...</h4>}
+        {goalLoading.adding && <PlaceholderCard />}
         {goals.map((goal) => (
           <GoalCard goal={goal} />
         ))}
