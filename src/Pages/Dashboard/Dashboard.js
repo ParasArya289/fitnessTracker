@@ -6,6 +6,7 @@ export const Dashboard = () => {
   const exercises = useSelector((state) => state.exercises);
   const foods = useSelector((state) => state.foods);
   const goals = useSelector((state) => state.goals);
+  const loading = useSelector(state=>state.loading)
 
   const totalCaloriesBurned = exercises.reduce(
     (acc, { caloriesBurnt }) => acc + caloriesBurnt,
@@ -29,7 +30,7 @@ export const Dashboard = () => {
     <div className="dashboard">
       <h1>Dashboard</h1>
       <div className="dashboard__container">
-        <div className="dashboard__card">
+        <div className="dashboard__card" data-loading={loading}>
           <p>
             <AiOutlineFire />
             {totalCaloriesBurned}
@@ -38,7 +39,7 @@ export const Dashboard = () => {
           <img src="dashboardCardBg.svg" />
         </div>
 
-        <div className="dashboard__card">
+        <div className="dashboard__card" data-loading={loading}>
           <p>
             <AiOutlineFire />
             {totalCaloriesConsumed}
@@ -47,7 +48,7 @@ export const Dashboard = () => {
           <img src="dashboardCardBg.svg" />
         </div>
 
-        <div className="dashboard__card">
+        <div className="dashboard__card" data-loading={loading}>
           <p>
             <AiOutlineFire />
             {totalCaloriesGoal}
@@ -56,7 +57,7 @@ export const Dashboard = () => {
           <img src="dashboardCardBg.svg" />
         </div>
 
-        <div className="dashboard__card">
+        <div className="dashboard__card" data-loading={loading}>
           <p>
             <AiOutlineFire />
             {totalCaloriesGoalRemaining}

@@ -27,7 +27,8 @@ h3 {
 }
 .foodCard[data-deleting="true"],
 .exerciseCard[data-deleting="true"],
-.goalCard[data-deleting="true"] {
+.goalCard[data-deleting="true"],
+.dashboard__card[data-loading="true"] {
   background: linear-gradient(90deg, #1f21258f, #1f2125, #1f21258f);
   background-size: 200% 100%;
   background-position: 100%;
