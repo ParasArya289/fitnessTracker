@@ -97,14 +97,18 @@ const GoalModal = ({ children }) => {
           </fieldset>
           <fieldset className="Fieldset">
             <label className="Label" htmlFor="status">
-              {"Status"}
+              Status
             </label>
-            <input
+            <select
               className="Input"
               name="status"
               defaultValue={formData.status}
               onChange={(e) => formDataHandler(e)}
-            />
+            >
+              <option value="Achieved">Achieved</option>
+              <option value="Abandoned">Abandoned</option>
+              <option value="In Progress">In Progress</option>
+            </select>
           </fieldset>
           <div
             style={{
