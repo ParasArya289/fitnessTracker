@@ -110,7 +110,7 @@ const ExerciseModal = ({ children }) => {
           >
             <Dialog.Close asChild>
               <button className="Button green" onClick={submitHandler}>
-                Save ExerciseModal
+                Save Exercise
               </button>
             </Dialog.Close>
           </div>

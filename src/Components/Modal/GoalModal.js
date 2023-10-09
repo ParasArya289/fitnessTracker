@@ -115,7 +115,7 @@ const GoalModal = ({ children }) => {
           >
             <Dialog.Close asChild>
               <button className="Button green" onClick={submitHandler}>
-                Save Food
+                Save Goal
               </button>
             </Dialog.Close>
           </div>
