@@ -21,6 +21,7 @@
 }
 .exerciseCard > img {
   position: absolute;
+  object-fit: cover;
   height: 80%;
   bottom: 0;
   right: 0;

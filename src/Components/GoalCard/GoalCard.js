@@ -24,9 +24,8 @@ export const GoalCard = ({ goal }) => {
   };
   return (
     <div
-      className={`goalCard ${
-        goalLoading.deleting && currentId === goal._id && "placeholderCard"
-      }`}
+      data-deleting={goalLoading.deleting && currentId === goal._id}
+      className="goalCard"
     >
       <h4>{goal.goalName}</h4>
       <p>{goal.goalDescription}</p>

@@ -22,7 +22,8 @@ export const ExerciseCard = ({
   };
   return (
     <div
-      className={`exerciseCard ${exerciseLoading.deleting && currentId === _id && "placeholderCard"}`}
+      data-deleting={exerciseLoading.deleting && currentId === _id}
+      className="exerciseCard"
     >
       <h4>{name}</h4>
       <p>{exerciseCalories[exerciseType]?.type}</p>
