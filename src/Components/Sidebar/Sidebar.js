@@ -1,5 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { RxDashboard, RxActivityLog, RxBarChart,RxTarget,RxOpacity,RxLightningBolt } from "react-icons/rx";
+import {
+  RxDashboard,
+  RxGithubLogo,
+  RxTarget,
+  RxOpacity,
+  RxLightningBolt,
+} from "react-icons/rx";
 import "./Sidebar.css";
 
 export const Sidebar = () => {
@@ -22,6 +28,14 @@ export const Sidebar = () => {
           <RxTarget className="link__icons" />
           <span>Goals</span>
         </NavLink>
+        <a
+          className="links"
+          href="https://github.com/ParasArya289/fitnessTracker"
+          target="_blank"
+        >
+          <RxGithubLogo className="link__icons" />
+          <span>Github</span>
+        </a>
       </div>
     </nav>
   );
