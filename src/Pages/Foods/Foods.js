@@ -53,7 +53,7 @@ export const Foods = () => {
       <div className="foods__container">
         {foodLoading.adding && <PlaceholderCard />}
         {foods.map((food) => (
-          <FoodCard {...food} />
+          <FoodCard key={food._id} {...food} />
         ))}
       </div>
       <FoodModal>
