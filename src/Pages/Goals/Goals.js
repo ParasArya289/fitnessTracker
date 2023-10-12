@@ -53,7 +53,7 @@ export const Goals = () => {
       <div className="goals__container">
         {goalLoading.adding && <PlaceholderCard />}
         {goals.map((goal) => (
-          <GoalCard goal={goal} />
+          <GoalCard key={goal._id} goal={goal} />
         ))}
       </div>
       <GoalModal>
