@@ -6,43 +6,6 @@ import { PlaceholderCard } from "../../Components/PlaceholderCard/PlaceholderCar
 import "./Goals.css";
 
 export const Goals = () => {
-  // const goals = [
-  //   {
-  //     goalName: "Weight Loss",
-  //     goalDescription: "Lose 10 pounds in 2 months.",
-  //     targetDate: "2023-12-31",
-  //     targetCaloriesValue: 1800,
-  //     status: "In Progress",
-  //   },
-  //   {
-  //     goalName: "Muscle Gain",
-  //     goalDescription: "Gain 5 pounds of muscle mass.",
-  //     targetDate: "2023-11-15",
-  //     targetCaloriesValue: 2500,
-  //     status: "In Progress",
-  //   },
-  //   {
-  //     goalName: "Marathon Training",
-  //     goalDescription: "Run a marathon in 6 months.",
-  //     targetDate: "2024-04-30",
-  //     targetCaloriesValue: null,
-  //     status: "In Progress",
-  //   },
-  //   {
-  //     goalName: "Maintain Healthy Diet",
-  //     goalDescription: "Consume balanced meals daily.",
-  //     targetDate: null,
-  //     targetCaloriesValue: 2000,
-  //     status: "Achieved",
-  //   },
-  //   {
-  //     goalName: "Abandon Sedentary Lifestyle",
-  //     goalDescription: "Engage in regular physical activity.",
-  //     targetDate: null,
-  //     targetCaloriesValue: null,
-  //     status: "Abandoned",
-  //   },
-  // ];
   const goals = useSelector((state) => state.goals);
   const loading = useSelector((state) => state.loading);
   const goalLoading = useSelector((state) => state.goalLoading);
