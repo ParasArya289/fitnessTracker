@@ -6,44 +6,6 @@ import { useSelector, shallowEqual } from "react-redux";
 import { PlaceholderCard } from "../../Components/PlaceholderCard/PlaceholderCard";
 
 export const Exercises = () => {
-  const exercies = [
-    {
-      name: "Dancing",
-      duration: 12,
-      exerciseType: "aerobic",
-      caloriesBurnt: 180,
-    },
-    {
-      name: "Deadlift",
-      duration: 15,
-      exerciseType: "strengthTraining",
-      caloriesBurnt: 675,
-    },
-    {
-      name: "Savassana",
-      duration: 12,
-      exerciseType: "yoga",
-      caloriesBurnt: 48,
-    },
-    {
-      name: "Morning walk",
-      duration: 30,
-      exerciseType: "walking",
-      caloriesBurnt: 210,
-    },
-    {
-      name: "Morning Cycling",
-      duration: 45,
-      exerciseType: "cycling",
-      caloriesBurnt: 585,
-    },
-    {
-      name: "Evening Running",
-      duration: 45,
-      exerciseType: "running",
-      caloriesBurnt: 540,
-    },
-  ];
   const exercises = useSelector((state) => state.exercises, shallowEqual);
   const loading = useSelector((state) => state.loading);
   const exerciseLoading = useSelector((state) => state.exerciseLoading);
@@ -55,7 +17,7 @@ export const Exercises = () => {
       <div className="exericise__container">
         {exerciseLoading.adding && <PlaceholderCard />}
         {exercises.map((exercise) => (
-          <ExerciseCard key={exercies._id} {...exercise} />
+          <ExerciseCard key={exercise._id} {...exercise} />
         ))}
       </div>
       <ExerciseModal>
