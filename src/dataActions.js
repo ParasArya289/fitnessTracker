@@ -2,7 +2,7 @@ export const fetchExercises = () => async (dispatch) => {
   try {
     dispatch({ type: "FETCH_DATA_LOADING" });
     const response = await fetch(
-      "https://fitness-tracker-backend.parasarya2.repl.co/fitness/exercises"
+      "https://fitness-tracker-server-86vy.onrender.com/fitness/exercises"
     );
     const { exercises } = await response.json();
     dispatch({ type: "FETCH_EXERCISES_SUCCESS", payload: exercises });
@@ -15,7 +15,7 @@ export const fetchFoods = () => async (dispatch) => {
   try {
     dispatch({ type: "FETCH_DATA_LOADING" });
     const response = await fetch(
-      "https://fitness-tracker-backend.parasarya2.repl.co/fitness/foods"
+      "https://fitness-tracker-server-86vy.onrender.com/fitness/foods"
     );
     const { foods } = await response.json();
     dispatch({ type: "FETCH_FOODS_SUCCESS", payload: foods });
@@ -28,7 +28,7 @@ export const fetchGoals = () => async (dispatch) => {
   try {
     dispatch({ type: "FETCH_DATA_LOADING" });
     const response = await fetch(
-      "https://fitness-tracker-backend.parasarya2.repl.co/fitness/goals"
+      "https://fitness-tracker-server-86vy.onrender.com/fitness/goals"
     );
     const { goals } = await response.json();
     dispatch({ type: "FETCH_GOALS_SUCCESS", payload: goals });
@@ -40,7 +40,7 @@ export const fetchGoals = () => async (dispatch) => {
 
 export const addEntry = (entry) => async (dispatch) => {
   console.log(
-    `https://fitness-tracker-backend.parasarya2.repl.co/fitness/${entry.type}`
+    `https://fitness-tracker-server-86vy.onrender.com/fitness/${entry.type}`
   );
   try {
     if (entry.type === "exercises") {
@@ -51,7 +51,7 @@ export const addEntry = (entry) => async (dispatch) => {
       dispatch({ type: "ADD_GOAL_LOADING" });
     }
     const response = await fetch(
-      `https://fitness-tracker-backend.parasarya2.repl.co/fitness/${entry.type}`,
+      `https://fitness-tracker-server-86vy.onrender.com/fitness/${entry.type}`,
       {
         method: "POST",
         headers: {
@@ -78,7 +78,7 @@ export const addEntry = (entry) => async (dispatch) => {
 
 export const removeEntry = (entry) => async (dispatch) => {
   console.log(
-    `https://fitness-tracker-backend.parasarya2.repl.co/fitness/${entry.type}/${entry._id}`
+    `https://fitness-tracker-server-86vy.onrender.com/fitness/${entry.type}/${entry._id}`
   );
   try {
     if (entry.type === "exercises") {
@@ -89,7 +89,7 @@ export const removeEntry = (entry) => async (dispatch) => {
       dispatch({ type: "DELETE_GOAL_LOADING" });
     }
     const response = await fetch(
-      `https://fitness-tracker-backend.parasarya2.repl.co/fitness/${entry.type}/${entry._id}`,
+      `https://fitness-tracker-server-86vy.onrender.com/fitness/${entry.type}/${entry._id}`,
       {
         method: "DELETE",
       }
